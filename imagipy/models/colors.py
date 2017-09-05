@@ -20,3 +20,11 @@ class Color:
 
     def __repr__(self):
         return "<Color ({}, {}, {})>".format(self._r, self._g, self._b)
+
+
+    def rgb(self):
+        """Returns the color's RGB values.
+
+        :rtype: ``tuple``"""
+
+        return (self._r, self._g, self._b)

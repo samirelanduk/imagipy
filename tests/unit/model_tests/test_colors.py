@@ -28,3 +28,11 @@ class ColorReprTests(TestCase):
     def test_can_get_color_repr(self):
         color = Color(74, 149, 134)
         self.assertEqual(str(color), "<Color (74, 149, 134)>")
+
+
+
+class ColorRgbTests(TestCase):
+
+    def test_can_get_color_rgb(self):
+        color = Color(74, 149, 134)
+        self.assertEqual(color.rgb(), (74, 149, 134))
