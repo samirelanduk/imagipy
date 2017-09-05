@@ -28,3 +28,11 @@ class Color:
         :rtype: ``tuple``"""
 
         return (self._r, self._g, self._b)
+
+
+    def hex(self):
+        """Returns the color as a hex string (#RRGGBB)
+
+        :rtype: ``str``"""
+
+        return "#{:02X}{:02X}{:02X}".format(self._r, self._g, self._b)

@@ -36,3 +36,11 @@ class ColorRgbTests(TestCase):
     def test_can_get_color_rgb(self):
         color = Color(74, 149, 134)
         self.assertEqual(color.rgb(), (74, 149, 134))
+
+
+
+class ColorHexTests(TestCase):
+
+    def test_can_get_color_as_hex(self):
+        color = Color(11, 149, 134)
+        self.assertEqual(color.hex(), "#0B9586")
