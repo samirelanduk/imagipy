@@ -16,3 +16,7 @@ class Color:
             if rgb < 0 or rgb > 255:
                 raise ValueError("RGB value {} not within 0-255".format(rgb))
         self._r, self._g, self._b = r, g, b
+
+
+    def __repr__(self):
+        return "<Color ({}, {}, {})>".format(self._r, self._g, self._b)

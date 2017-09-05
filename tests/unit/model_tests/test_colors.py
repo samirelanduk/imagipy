@@ -20,3 +20,11 @@ class ColorCreationTests(TestCase):
             Color(74, 149, -1)
         with self.assertRaises(ValueError):
             Color(74, 149, 256)
+
+
+
+class ColorReprTests(TestCase):
+
+    def test_can_get_color_repr(self):
+        color = Color(74, 149, 134)
+        self.assertEqual(str(color), "<Color (74, 149, 134)>")
