@@ -18,6 +18,28 @@ class Color:
         self._r, self._g, self._b = r, g, b
 
 
+    @staticmethod
+    def from_hex(hexcolor):
+        """An alternate constructor which creates a color from a hex string
+        such as ``'#0B9586'``. The preceding `#` is optional.
+
+        :param str hexcolor: The hex string representing the desired color.
+        :raises TypeError: if a non-string is given.
+        :raises ValueError: if the hex string is not valid.
+        :rtype: ``Color``"""
+    
+        if not isinstance(hexcolor, str):
+            raise TypeError("{} is not a string".format(hexcolor))
+        if hexcolor and hexcolor[0] == "#":
+            hexcolor = hexcolor[1:]
+        try:
+            if len(hexcolor) != 6: raise ValueError
+            rgb = [int(hexcolor[i * 2:i * 2 + 2], 16) for i in range(3)]
+            return Color(*rgb)
+        except:
+            raise ValueError("{} is not a valid hex color".format(hexcolor))
+
+
     def __repr__(self):
         return "<Color ({}, {}, {})>".format(self._r, self._g, self._b)
 

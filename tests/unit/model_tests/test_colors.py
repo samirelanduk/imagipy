@@ -23,6 +23,37 @@ class ColorCreationTests(TestCase):
 
 
 
+class ColorFromHexTests(TestCase):
+
+    def test_can_get_color_from_hex(self):
+        color = Color.from_hex("#0B9586")
+        self.assertEqual(color._r, 11)
+        self.assertEqual(color._g, 149)
+        self.assertEqual(color._b, 134)
+
+
+    def test_can_get_color_from_hex_without_hash(self):
+        color = Color.from_hex("0B9586")
+        self.assertEqual(color._r, 11)
+        self.assertEqual(color._g, 149)
+        self.assertEqual(color._b, 134)
+
+
+    def test_hex_must_be_str(self):
+        with self.assertRaises(TypeError):
+            Color.from_hex(123)
+
+
+    def test_hex_must_be_valid(self):
+        with self.assertRaises(ValueError):
+            Color.from_hex("0B986")
+        with self.assertRaises(ValueError):
+            Color.from_hex("#0B986")
+        with self.assertRaises(ValueError):
+            Color.from_hex("")
+
+
+
 class ColorReprTests(TestCase):
 
     def test_can_get_color_repr(self):
