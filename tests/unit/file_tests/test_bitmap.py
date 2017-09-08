@@ -13,5 +13,6 @@ class SplitBitmapTests(TestCase):
         self.assertEqual(sections, [
          b"BMAAAAAAAA9\x00\x00\x00",
          b"(\x00\x00\x00AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         b"FFF",
          b"RGBRGBRGBRGBRGBRGBRGB"
         ])
