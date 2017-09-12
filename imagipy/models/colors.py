@@ -47,7 +47,7 @@ class Color:
         """An alternate constructor which creates a random color
 
         :rtype: ``Color``"""
-        
+
         return Color(randint(0, 255), randint(0, 255), randint(0, 255))
 
 
@@ -69,3 +69,16 @@ class Color:
         :rtype: ``str``"""
 
         return "#{:02X}{:02X}{:02X}".format(self._r, self._g, self._b)
+
+
+
+Color.RED = Color(255, 40, 40)
+Color.GREEN = Color(39, 174, 96)
+Color.BLUE = Color(52, 152, 219)
+Color.YELLOW = Color(241, 196, 15)
+Color.ORANGE = Color(230, 126, 34)
+Color.PURPLE = Color(142, 68, 173)
+Color.BROWN = Color(124, 63, 0)
+Color.GRAY = Color(204, 204, 204)
+Color.WHITE = Color(255, 255, 255)
+Color.BLACK = Color(17, 17, 17)
