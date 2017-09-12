@@ -1,5 +1,7 @@
 """This module contains classes and functions for processing colors."""
 
+from random import randint
+
 class Color:
     """Represents a color.
 
@@ -27,7 +29,7 @@ class Color:
         :raises TypeError: if a non-string is given.
         :raises ValueError: if the hex string is not valid.
         :rtype: ``Color``"""
-    
+
         if not isinstance(hexcolor, str):
             raise TypeError("{} is not a string".format(hexcolor))
         if hexcolor and hexcolor[0] == "#":
@@ -38,6 +40,15 @@ class Color:
             return Color(*rgb)
         except:
             raise ValueError("{} is not a valid hex color".format(hexcolor))
+
+
+    @staticmethod
+    def random():
+        """An alternate constructor which creates a random color
+
+        :rtype: ``Color``"""
+        
+        return Color(randint(0, 255), randint(0, 255), randint(0, 255))
 
 
     def __repr__(self):

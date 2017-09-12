@@ -1,4 +1,5 @@
 from unittest import TestCase
+from unittest.mock import Mock, patch
 from imagipy.models.colors import Color
 
 class ColorCreationTests(TestCase):
@@ -51,6 +52,20 @@ class ColorFromHexTests(TestCase):
             Color.from_hex("#0B986")
         with self.assertRaises(ValueError):
             Color.from_hex("")
+
+
+
+class RandomColorTests(TestCase):
+
+    @patch("imagipy.models.colors.randint")
+    def test_can_get_random_color(self, mock_rand):
+        mock_rand.side_effect = [23, 45, 67]
+        color = Color.random()
+        mock_rand.assert_called_with(0, 255)
+        self.assertEqual(mock_rand.call_count, 3)
+        self.assertEqual(color._r, 23)
+        self.assertEqual(color._g, 45)
+        self.assertEqual(color._b, 67)
 
 
 
