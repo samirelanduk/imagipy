@@ -71,6 +71,22 @@ class Color:
         return "#{:02X}{:02X}{:02X}".format(self._r, self._g, self._b)
 
 
+    def mutate(self):
+        """Creates a new :py:class:`.Color` that is a slight variation on this
+        one, but with the RGB values randomised within 16 either in either
+        direction.
+
+        :rtype: ``Color``"""
+        
+        r = randint(self._r - 16, self._r + 16)
+        g = randint(self._g - 16, self._g + 16)
+        b = randint(self._b - 16, self._b + 16)
+        r = (r if r >= 0 else 0) if r <= 255 else 255
+        g = (g if g >= 0 else 0) if g <= 255 else 255
+        b = (b if b >= 0 else 0) if b <= 255 else 255
+        return Color(r, g, b)
+
+
 
 Color.RED = Color(255, 40, 40)
 Color.GREEN = Color(39, 174, 96)

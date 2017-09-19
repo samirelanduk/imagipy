@@ -90,3 +90,32 @@ class ColorHexTests(TestCase):
     def test_can_get_color_as_hex(self):
         color = Color(11, 149, 134)
         self.assertEqual(color.hex(), "#0B9586")
+
+
+
+class ColorMutationTests(TestCase):
+
+    @patch("imagipy.models.colors.randint")
+    def test_can_mutate_color(self, mock_rand):
+        mock_rand.side_effect = [23, 45, 67]
+        color = Color(24, 149, 134)
+        new_color = color.mutate()
+        mock_rand.assert_any_call(8, 40)
+        mock_rand.assert_any_call(133, 165)
+        mock_rand.assert_any_call(118, 150)
+        self.assertEqual(new_color._r, 23)
+        self.assertEqual(new_color._g, 45)
+        self.assertEqual(new_color._b, 67)
+
+
+    @patch("imagipy.models.colors.randint")
+    def test_color_mutation_doesnt_stray_beyond_bounds(self, mock_rand):
+        mock_rand.side_effect = [-4, 258, 0]
+        color = Color(24, 149, 134)
+        new_color = color.mutate()
+        mock_rand.assert_any_call(8, 40)
+        mock_rand.assert_any_call(133, 165)
+        mock_rand.assert_any_call(118, 150)
+        self.assertEqual(new_color._r, 0)
+        self.assertEqual(new_color._g, 255)
+        self.assertEqual(new_color._b, 0)
