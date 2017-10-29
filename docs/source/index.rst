@@ -1,4 +1,4 @@
-atomium
+imagipy
 =======
 
 imagipy is an image and color processing library.
@@ -21,3 +21,6 @@ Table of Contents
 .. toctree ::
 
     installing
+    api
+    contributing
+    changelog

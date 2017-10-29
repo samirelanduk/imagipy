@@ -9,7 +9,7 @@ imagipy can be installed using pip:
 ``$ pip3 install imagipy``
 
 imagipy is written for Python 3, and does not support Python 2. It is currently
-tested on Python 3.3 and above.
+tested on Python 3.5 and above.
 
 If you get permission errors, try using ``sudo``:
 
