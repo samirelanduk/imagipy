@@ -1,6 +1,6 @@
 from unittest import TestCase
 from unittest.mock import Mock, patch
-from imagipy.models.colors import Color
+from imagipy.colors import Color
 
 class ColorCreationTests(TestCase):
 
@@ -57,7 +57,7 @@ class ColorFromHexTests(TestCase):
 
 class RandomColorTests(TestCase):
 
-    @patch("imagipy.models.colors.randint")
+    @patch("imagipy.colors.randint")
     def test_can_get_random_color(self, mock_rand):
         mock_rand.side_effect = [23, 45, 67]
         color = Color.random()
@@ -95,7 +95,7 @@ class ColorHexTests(TestCase):
 
 class ColorMutationTests(TestCase):
 
-    @patch("imagipy.models.colors.randint")
+    @patch("imagipy.colors.randint")
     def test_can_mutate_color(self, mock_rand):
         mock_rand.side_effect = [23, 45, 67]
         color = Color(24, 149, 134)
@@ -108,7 +108,7 @@ class ColorMutationTests(TestCase):
         self.assertEqual(new_color._b, 67)
 
 
-    @patch("imagipy.models.colors.randint")
+    @patch("imagipy.colors.randint")
     def test_color_mutation_doesnt_stray_beyond_bounds(self, mock_rand):
         mock_rand.side_effect = [-4, 258, 0]
         color = Color(24, 149, 134)
