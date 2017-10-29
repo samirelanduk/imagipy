@@ -23,7 +23,7 @@ class Color:
     @staticmethod
     def from_hex(hexcolor):
         """An alternate constructor which creates a color from a hex string
-        such as ``'#0B9586'``. The preceding `#` is optional.
+        such as ``'#0B9586'``. The preceding ``#`` is optional.
 
         :param str hexcolor: The hex string representing the desired color.
         :raises TypeError: if a non-string is given.
@@ -77,7 +77,7 @@ class Color:
         direction.
 
         :rtype: ``Color``"""
-        
+
         r = randint(self._r - 16, self._r + 16)
         g = randint(self._g - 16, self._g + 16)
         b = randint(self._b - 16, self._b + 16)
